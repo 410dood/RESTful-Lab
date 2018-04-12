@@ -1,3 +1,6 @@
+
+// ----------CHALLANGE 1----------------
+
 const express = require('express');
 const app = express();
 const comedians = [
@@ -9,12 +12,12 @@ const comedians = [
 app.get('/comedians', (request, response) => {
     response.send(comedians);
 });
-// app.get('/comedians/:id', (request, response) => {
+// app.get('/cars/:id', (request, response) => {
 //     response.send(comdedians.id);
 
 app.get('/comedians/:id', (request, response) => {
     let id = request.params.id;
-    let comedian = comedians[id - 1];
+    let comdedian = comedians[id - 1];
     // let id = request.params.id;
     // let video = videos.filter((video) => video.id === id))[0];
     response.send(comedian);
@@ -23,6 +26,32 @@ app.get('/comedians/:id', (request, response) => {
 app.listen(3000, () => {
     console.log("Listening");
 });
+
+
+// ---------- CHALLANGE 2 ----------
+
+const cars = [
+    { id: 1, make: 'bmw' },
+    { id: 2, make: 'ford' },
+    { id: 3, make: 'chevrolet' },
+    { id: 4, make: 'mazda' },
+    { id: 5, make: 'lincoln' },
+    { id: 6, make: 'tesla' },
+];
+
+app.get('/cars', (request, response) => {
+    let id = request.params.id;
+    let car = cars[id - 1];
+    response.send(car);
+    console.log("response.params");
+});
+app.get('/cars/:id', (request, response) => {
+    let id = request.params.id;
+    let car = cars[id - 1];
+    response.send(car);
+    console.log("response.params");
+});
+
 
 // const express = require('express');
 // const app = express();
